@@ -1,0 +1,8 @@
+class Main {
+    function void main() {
+        var ReactionGame game;
+        let game = ReactionGame.new();
+        do game.run();
+        return;
+    }
+}

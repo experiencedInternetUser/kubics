@@ -1,0 +1,521 @@
+function ReactionGame.new 0
+push constant 26
+call Memory.alloc 1
+pop pointer 0
+push constant 50
+pop this 0
+push constant 50
+pop this 1
+push constant 15
+pop this 2
+push constant 15
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+push constant 30
+pop this 6
+push constant 30
+pop this 7
+push constant 10
+pop this 8
+push constant 20
+pop this 9
+push constant 1
+pop this 10
+push constant 1
+neg
+pop this 11
+push constant 100
+pop this 12
+push constant 100
+pop this 13
+push constant 15
+pop this 14
+push constant 10
+pop this 15
+push constant 1
+neg
+pop this 16
+push constant 2
+neg
+pop this 17
+push constant 0
+pop this 18
+push constant 1
+pop this 19
+push constant 10
+pop this 22
+push constant 10
+pop this 23
+push constant 200
+pop this 24
+push constant 200
+pop this 25
+push constant 0
+pop this 20
+push constant 0
+pop this 21
+push pointer 0
+return
+function ReactionGame.collide 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+push argument 1
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push argument 1
+push argument 3
+add
+push this 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+return
+label IF_FALSE1
+push this 1
+push this 3
+add
+push argument 2
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+return
+label IF_FALSE2
+push argument 2
+push argument 4
+add
+push this 1
+lt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+return
+label IF_FALSE3
+push constant 0
+not
+return
+function ReactionGame.update 0
+push argument 0
+pop pointer 0
+push this 0
+push this 4
+add
+pop this 0
+push this 1
+push this 5
+add
+pop this 1
+push this 0
+push this 22
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 22
+pop this 0
+label IF_FALSE0
+push this 1
+push this 23
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 23
+pop this 1
+label IF_FALSE1
+push this 0
+push this 2
+add
+push this 22
+push this 24
+add
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 22
+push this 24
+add
+push this 2
+sub
+pop this 0
+label IF_FALSE2
+push this 1
+push this 3
+add
+push this 23
+push this 25
+add
+gt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 23
+push this 25
+add
+push this 3
+sub
+pop this 1
+label IF_FALSE3
+push this 6
+push this 10
+add
+push constant 0
+lt
+push this 6
+push this 10
+add
+push this 22
+push this 24
+add
+push this 22
+add
+gt
+or
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 10
+neg
+pop this 10
+label IF_FALSE4
+push this 7
+push this 11
+add
+push constant 0
+lt
+push this 7
+push this 11
+add
+push this 23
+push this 25
+add
+push this 23
+add
+gt
+or
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 11
+neg
+pop this 11
+label IF_FALSE5
+push this 6
+push this 10
+add
+pop this 6
+push this 7
+push this 11
+add
+pop this 7
+push this 12
+push this 16
+add
+push constant 0
+lt
+push this 12
+push this 16
+add
+push this 22
+push this 24
+add
+push this 22
+add
+gt
+or
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 16
+neg
+pop this 16
+label IF_FALSE6
+push this 13
+push this 17
+add
+push constant 0
+lt
+push this 13
+push this 17
+add
+push this 23
+push this 25
+add
+push this 23
+add
+gt
+or
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push this 17
+neg
+pop this 17
+label IF_FALSE7
+push this 12
+push this 16
+add
+pop this 12
+push this 13
+push this 17
+add
+pop this 13
+push pointer 0
+push this 6
+push this 7
+push this 8
+push this 9
+call ReactionGame.collide 5
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 0
+not
+pop this 18
+label IF_FALSE8
+push pointer 0
+push this 12
+push this 13
+push this 14
+push this 15
+call ReactionGame.collide 5
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push constant 0
+not
+pop this 18
+label IF_FALSE9
+push constant 0
+return
+function ReactionGame.drawAll 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 22
+push this 23
+push this 22
+push this 24
+add
+push this 23
+push constant 0
+add
+call Screen.drawLine 4
+pop temp 0
+push this 22
+push this 23
+push this 22
+push constant 0
+add
+push this 23
+push this 25
+add
+call Screen.drawLine 4
+pop temp 0
+push this 22
+push this 24
+add
+push this 23
+push constant 0
+add
+push this 22
+push this 24
+add
+push this 23
+push this 25
+add
+call Screen.drawLine 4
+pop temp 0
+push this 22
+push constant 0
+add
+push this 23
+push this 25
+add
+push this 22
+push this 24
+add
+push this 23
+push this 25
+add
+call Screen.drawLine 4
+pop temp 0
+push constant 20
+push constant 10
+call Output.moveCursor 2
+pop temp 0
+push this 21
+call Output.printInt 1
+pop temp 0
+push this 6
+push this 7
+push this 6
+push this 8
+add
+push this 7
+push this 9
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 12
+push this 13
+push this 12
+push this 14
+add
+push this 13
+push this 15
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function ReactionGame.increaseTime 0
+push argument 0
+pop pointer 0
+push this 20
+push constant 50
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+pop this 20
+push this 21
+push constant 1
+add
+pop this 21
+label IF_FALSE0
+push constant 0
+return
+function ReactionGame.run 1
+push argument 0
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 0
+push pointer 0
+call ReactionGame.drawAll 1
+pop temp 0
+label WHILE_EXP0
+push this 18
+not
+not
+if-goto WHILE_END0
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+call Keyboard.keyPressed 0
+pop local 0
+push this 20
+push constant 1
+add
+pop this 20
+push pointer 0
+call ReactionGame.increaseTime 1
+pop temp 0
+push local 0
+push constant 97
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 5
+neg
+push this 19
+call Math.multiply 2
+pop this 4
+push constant 0
+pop this 5
+call Keyboard.keyPressed 0
+pop local 0
+label IF_FALSE0
+push local 0
+push constant 100
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 5
+push this 19
+call Math.multiply 2
+pop this 4
+push constant 0
+pop this 5
+call Keyboard.keyPressed 0
+pop local 0
+label IF_FALSE1
+push local 0
+push constant 119
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+pop this 4
+push constant 5
+neg
+push this 19
+call Math.multiply 2
+pop this 5
+call Keyboard.keyPressed 0
+pop local 0
+label IF_FALSE2
+push local 0
+push constant 115
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+pop this 4
+push constant 5
+push this 19
+call Math.multiply 2
+pop this 5
+call Keyboard.keyPressed 0
+pop local 0
+label IF_FALSE3
+push pointer 0
+call ReactionGame.update 1
+pop temp 0
+call Screen.clearScreen 0
+pop temp 0
+push pointer 0
+call ReactionGame.drawAll 1
+pop temp 0
+push constant 1
+call Sys.wait 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

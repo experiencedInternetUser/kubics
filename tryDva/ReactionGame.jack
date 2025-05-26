@@ -1,0 +1,190 @@
+class ReactionGame {
+    field int x; field int y; 
+    field int playerWidth; field int playerHeight;
+    field int dx; field int dy;
+
+    // препятствия
+    field int bx1; field int by1; 
+    field int bWidth1; field int bHeight1;
+    field int dbx1; field int dby1;
+
+    field int bx2; field int by2; 
+    field int bWidth2; field int bHeight2;
+    field int dbx2; field int dby2;
+
+    //field int bx3; field int by3; 
+    //field int bWidth3; field int bHeight3;
+
+    //field int bx4; field int by4; 
+    //field int bWidth4; field int bHeight4;
+
+    // игровые штуки
+    field boolean gameOver;
+    field int gameSpeed;
+    field int kindaTimeInMs; field int time;
+    field int xBound; field int yBound;
+    field int boundWidth; field int boundHeight;
+
+
+    constructor ReactionGame new() {
+        let x = 50; let y = 50;
+        let playerWidth = 15; let playerHeight = 15;
+        let dx = 0; let dy = 0;
+
+        /////////////////////////
+
+        let bx1 = 30; let by1 = 30;
+        let bWidth1 = 10; let bHeight1 = 20;
+        let dbx1 = 1; let dby1 = -1;
+
+        let bx2 = 100; let by2 = 100;
+        let bWidth2 = 15; let bHeight2 = 10;
+        let dbx2 = -1; let dby2 = -2;
+
+        /////////////////////////
+
+        let gameOver = false;
+        let gameSpeed = 1;
+        let xBound = 10; let yBound = 10;
+        let boundWidth = 200; let boundHeight = 200;
+        let kindaTimeInMs = 0; let time = 0;
+        return this;
+    }
+
+    
+    method boolean collide(int bx, int by, int width, int height) 
+    {
+        if ((x + playerWidth) < bx) { return false; }
+        if ((bx + width) < x) { return false; }
+        if ((y + playerHeight) < by) { return false; }
+        if ((by + height) < y) { return false; }
+        
+        return true;
+    }
+
+    method void update() {
+        let x = x + dx; let y = y + dy;
+
+        if (x < xBound) { let x = xBound; }
+        if (y < yBound) { let y = yBound; }
+
+        if ((x + playerWidth) > (xBound + boundWidth)) { 
+            let x = xBound + boundWidth - playerWidth; 
+        }
+        if ((y + playerHeight) > (yBound + boundHeight)) { 
+            let y = yBound + boundHeight - playerHeight; 
+        }
+
+        //////////
+
+        if ((bx1 + dbx1 < 0) | (bx1 + dbx1 > (xBound + boundWidth + xBound))) { let dbx1 = -dbx1; } 
+        if ((by1 + dby1 < 0) | (by1 + dby1 > (yBound + boundHeight + yBound))) { let dby1 = -dby1; }
+        let bx1 = bx1 + dbx1; let by1 = by1 + dby1;
+
+        if ((bx2 + dbx2 < 0) | (bx2 + dbx2 > (xBound + boundWidth + xBound))) { let dbx2 = -dbx2; } 
+        if ((by2 + dby2 < 0) | (by2 + dby2 > (yBound + boundHeight + yBound))) { let dby2 = -dby2; }
+        let bx2 = bx2 + dbx2; let by2 = by2 + dby2;
+
+        //////////
+
+        if (collide(bx1, by1, bWidth1, bHeight1)) { let gameOver = true; }
+        if (collide(bx2, by2, bWidth2, bHeight2)) { let gameOver = true; }
+        //if (collide(x,y,size,bx3,by3,size)) { }
+        //if (collide(x,y,size,bx4,by4,size)) { }
+        
+        //////////
+
+        //do updateSpeed
+        return;
+    }
+
+    /** Рисование всех объектов */
+    method void drawAll() {
+        do Screen.setColor(true);
+
+        do Screen.drawLine(xBound, yBound, xBound + boundWidth, yBound + 0);
+        do Screen.drawLine(xBound, yBound, xBound + 0, yBound + boundHeight);
+        do Screen.drawLine(xBound + boundWidth, yBound + 0, xBound + boundWidth, yBound + boundHeight);
+        do Screen.drawLine(xBound + 0, yBound + boundHeight, xBound + boundWidth, yBound  + boundHeight);
+        
+        //do Output.moveCursor(20, 0);
+	    //do Output.printString("time:");
+        do Output.moveCursor(20, 10);
+        do Output.printInt(time);
+        //////////
+
+        do Screen.drawRectangle(bx1, by1, bx1 + bWidth1, by1 + bHeight1);
+        do Screen.drawRectangle(bx2, by2, bx2 + bWidth2, by2 + bHeight2);
+        //do Screen.drawRectangle(bx3, by3);
+        //do Screen.drawRectangle(bx4, by4);
+
+        ///////////
+
+        do Screen.drawRectangle(x, y, x + playerWidth, y + playerHeight);
+
+        return;
+    }
+
+    /** Попытка сделать время */
+    method void increaseTime() {
+        if (kindaTimeInMs = 50) {
+            let kindaTimeInMs = 0;
+            let time = time + 1;
+        }
+        return;
+    }
+    
+    /** Запуск игры */
+    method void run() {
+        var int key;
+        do Screen.clearScreen();
+        do drawAll();
+
+        while (~(gameOver)) {
+            let dx = 0; let dy = 0;
+            let key = Keyboard.keyPressed();
+            let kindaTimeInMs = kindaTimeInMs + 1;
+            do increaseTime();
+
+            if (key = 97) { // a
+                let dx = -5 * gameSpeed;
+                let dy = 0;
+                let key = Keyboard.keyPressed();
+            }
+            if (key = 100) { // d
+                let dx = 5 * gameSpeed;
+                let dy = 0;
+                let key = Keyboard.keyPressed();
+            }
+            if (key = 119) { // w
+                let dx = 0;
+                let dy = -5 * gameSpeed;
+                let key = Keyboard.keyPressed();
+            }
+            if (key = 115) { // s
+                let dx = 0;
+                let dy = 5 * gameSpeed;
+                let key = Keyboard.keyPressed();
+            }
+            //q e z c s-...
+
+
+            if (key = 111) { // 0 - out(vixod)
+                let gameOver = true;
+            }
+            if (key = 112) { // p - pause
+                let key = 0; 
+                do Sys.wait(50);
+                while (~(key = 112)) {      
+                    let key = Keyboard.keyPressed();
+                }
+            }
+
+            do update();
+            do Screen.clearScreen();
+            do drawAll();
+            do Sys.wait(1);
+        }
+        return;
+    }
+}
