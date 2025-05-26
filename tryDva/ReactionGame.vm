@@ -416,6 +416,224 @@ pop this 21
 label IF_FALSE0
 push constant 0
 return
+function ReactionGame.drawGameOver 1
+push argument 0
+pop pointer 0
+push constant 16384
+push argument 1
+add
+pop local 0
+push local 0
+push constant 30946
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 14207
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 20381
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 18577
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 18574
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 18176
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 18560
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 18560
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 18560
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 30976
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 962
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 39
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 485
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 37
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 965
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 225
+add
+push constant 11324
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 257
+add
+push constant 12324
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 289
+add
+push constant 4580
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 321
+add
+push constant 4132
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 353
+add
+push constant 5059
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 226
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function ReactionGame.waitRestart 1
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push local 0
+push constant 114
+eq
+not
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 0
+push local 0
+push constant 114
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 50
+pop this 0
+push constant 50
+pop this 1
+push constant 15
+pop this 2
+push constant 15
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 5
+push constant 30
+pop this 6
+push constant 30
+pop this 7
+push constant 10
+pop this 8
+push constant 20
+pop this 9
+push constant 1
+pop this 10
+push constant 1
+neg
+pop this 11
+push constant 100
+pop this 12
+push constant 100
+pop this 13
+push constant 15
+pop this 14
+push constant 10
+pop this 15
+push constant 1
+neg
+pop this 16
+push constant 2
+neg
+pop this 17
+push constant 0
+pop this 18
+push constant 1
+pop this 19
+push constant 10
+pop this 22
+push constant 10
+pop this 23
+push constant 200
+pop this 24
+push constant 200
+pop this 25
+push constant 0
+pop this 20
+push constant 0
+pop this 21
+label IF_FALSE0
+goto WHILE_EXP0
+label WHILE_END0
+push pointer 0
+call ReactionGame.run 1
+pop temp 0
+push constant 0
+return
 function ReactionGame.run 1
 push argument 0
 pop pointer 0
@@ -504,6 +722,39 @@ pop this 5
 call Keyboard.keyPressed 0
 pop local 0
 label IF_FALSE3
+push local 0
+push constant 111
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 0
+not
+pop this 18
+label IF_FALSE4
+push local 0
+push constant 112
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 0
+pop local 0
+push constant 50
+call Sys.wait 1
+pop temp 0
+label WHILE_EXP1
+push local 0
+push constant 112
+eq
+not
+not
+if-goto WHILE_END1
+call Keyboard.keyPressed 0
+pop local 0
+goto WHILE_EXP1
+label WHILE_END1
+label IF_FALSE5
 push pointer 0
 call ReactionGame.update 1
 pop temp 0
@@ -517,5 +768,20 @@ call Sys.wait 1
 pop temp 0
 goto WHILE_EXP0
 label WHILE_END0
+push pointer 0
+push constant 7000
+call ReactionGame.drawGameOver 2
+pop temp 0
+push pointer 0
+call ReactionGame.waitRestart 1
+pop temp 0
+push constant 0
+return
+function ReactionGame.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
 push constant 0
 return

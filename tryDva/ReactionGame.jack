@@ -133,7 +133,69 @@ class ReactionGame {
         }
         return;
     }
-    
+
+    method void drawGameOver(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        // column 0
+        do Memory.poke(memAddress, -30946);
+        do Memory.poke(memAddress +32, -14207);
+        do Memory.poke(memAddress +64, 20381);
+        do Memory.poke(memAddress +96, 18577);
+        do Memory.poke(memAddress +128, 18574);
+        do Memory.poke(memAddress +224, 18176);
+        do Memory.poke(memAddress +256, 18560);
+        do Memory.poke(memAddress +288, 18560);
+        do Memory.poke(memAddress +320, 18560);
+        do Memory.poke(memAddress +352, -30976);
+        // column 1
+        do Memory.poke(memAddress +1, 962);
+        do Memory.poke(memAddress +33, 39);
+        do Memory.poke(memAddress +65, 485);
+        do Memory.poke(memAddress +97, 37);
+        do Memory.poke(memAddress +129, 965);
+        do Memory.poke(memAddress +225, -11324);
+        do Memory.poke(memAddress +257, 12324);
+        do Memory.poke(memAddress +289, 4580);
+        do Memory.poke(memAddress +321, 4132);
+        do Memory.poke(memAddress +353, 5059);
+        // column 2
+        do Memory.poke(memAddress +226, 1);
+        return;
+    }
+
+    method void waitRestart() {
+        var int key;
+        while (~(key = 114)) {
+            let key = Keyboard.keyPressed();
+            if (key = 114) { // r - restart
+                let x = 50; let y = 50;
+                let playerWidth = 15; let playerHeight = 15;
+                let dx = 0; let dy = 0;
+
+                /////////////////////////
+
+                let bx1 = 30; let by1 = 30;
+                let bWidth1 = 10; let bHeight1 = 20;
+                let dbx1 = 1; let dby1 = -1;
+
+                let bx2 = 100; let by2 = 100;
+                let bWidth2 = 15; let bHeight2 = 10;
+                let dbx2 = -1; let dby2 = -2;
+
+                /////////////////////////
+
+                let gameOver = false;
+                let gameSpeed = 1;
+                let xBound = 10; let yBound = 10;
+                let boundWidth = 200; let boundHeight = 200;
+                let kindaTimeInMs = 0; let time = 0;
+            }
+        }
+
+        do run();
+        return;
+    }
     /** Запуск игры */
     method void run() {
         var int key;
@@ -180,11 +242,19 @@ class ReactionGame {
                 }
             }
 
-            do update();
-            do Screen.clearScreen();
-            do drawAll();
+            do update(); 
+            do Screen.clearScreen(); 
+            do drawAll(); 
             do Sys.wait(1);
         }
+
+        do drawGameOver(7000);
+        do waitRestart();
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
         return;
     }
 }
