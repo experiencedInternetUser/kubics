@@ -133,6 +133,7 @@ class ReactionGame {
         if (time = 50) {
             do drawWarning(tamGdeNadoNadpisiRisovat);
 
+            let x =xBound + 70;let y = yBound + 70;
             let bx1 = xBound; let by1 = yBound;
             let bx2 = xBound; let by2 = yBound + boundHeight - 70;
             let bx3 = xBound + boundWidth - 70; let by3 = yBound;
@@ -246,7 +247,7 @@ class ReactionGame {
         
         //do Output.moveCursor(20, 0);
 	    //do Output.printString("time:");
-        do Output.moveCursor(20, 10);
+        do Output.moveCursor(20, 2);
         do Output.printInt(time);
 
         //////////
@@ -472,13 +473,12 @@ class ReactionGame {
             }
             //q e z c
 
-
             if (key = 111) { // 0 - out(vixod)
                 let gameOver = true;
             }
             if (key = 112) { // p - pause
                 let key = 0; 
-                do Sys.wait(50);
+                do Sys.wait(2000);
                 while (~(key = 112)) {      
                     let key = Keyboard.keyPressed();
                     do drawPause(tamGdeNadoNadpisiRisovat);
@@ -490,6 +490,7 @@ class ReactionGame {
             if (key = 45) { // '-' - -10sec
                 let time = time - 10;
             }
+
             do update(); 
             do Screen.clearScreen(); 
             do drawAll(); 
