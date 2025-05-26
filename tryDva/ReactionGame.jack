@@ -133,7 +133,7 @@ class ReactionGame {
         if (time = 50) {
             do drawWarning(tamGdeNadoNadpisiRisovat);
 
-            let x =xBound + 70;let y = yBound + 70;
+            let x =xBound + 70 + 5;let y = yBound + 70 + 5;
             let bx1 = xBound; let by1 = yBound;
             let bx2 = xBound; let by2 = yBound + boundHeight - 70;
             let bx3 = xBound + boundWidth - 70; let by3 = yBound;
@@ -146,7 +146,7 @@ class ReactionGame {
             let dbx1 = 0; let dby1 = 0;
             let dbx2 = 0; let dby2 = 0;
             let dbx3 = 0; let dby3 = 0;
-            let dbx4 = 13; let dby4 = 20;  
+            let dbx4 = 9; let dby4 = 16;  
             let gameSpeed = 20;
             
             do Sys.wait(3000);
@@ -505,6 +505,28 @@ class ReactionGame {
                 } else { 
                     let shield = true;
                 }
+            }
+            // тут можно в методы уводить кнопки(выбор уровней, управление, допссс)
+            if (key = 49) { // 1 - level 1
+                let time = 10;
+            }
+            if (key = 50) { // 2 - level 2
+                let time = 20;
+            }
+            if (key = 51) { // 3 - level 3
+                let time = 30;
+            }
+            if (key = 52) { // 4 - level 4
+                let time = 40;
+            }
+            if (key = 53) { // 5 - level 5
+                let time = 50;
+            }
+            if (key = 54) { // 6 - level 6
+                let time = 60;
+            }
+            if (key = 55) { // 7 - level 7
+                let time = 70;
             }
             do update(); 
             do Screen.clearScreen(); 
