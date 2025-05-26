@@ -1,10 +1,10 @@
 function ReactionGame.new 0
-push constant 38
+push constant 40
 call Memory.alloc 1
 pop pointer 0
-push constant 50
+push constant 100
 pop this 0
-push constant 50
+push constant 100
 pop this 1
 push constant 15
 pop this 2
@@ -27,9 +27,9 @@ pop this 10
 push constant 1
 neg
 pop this 11
-push constant 100
+push constant 170
 pop this 12
-push constant 100
+push constant 170
 pop this 13
 push constant 40
 pop this 14
@@ -41,7 +41,7 @@ pop this 16
 push constant 2
 neg
 pop this 17
-push constant 100
+push constant 170
 pop this 18
 push constant 30
 pop this 19
@@ -55,7 +55,7 @@ push constant 1
 pop this 23
 push constant 30
 pop this 24
-push constant 100
+push constant 170
 pop this 25
 push constant 10
 pop this 26
@@ -81,6 +81,10 @@ push constant 0
 pop this 32
 push constant 0
 pop this 33
+push constant 0
+pop this 38
+push constant 6800
+pop this 39
 push pointer 0
 return
 function ReactionGame.collide 0
@@ -132,6 +136,362 @@ return
 label IF_FALSE3
 push constant 0
 not
+return
+function ReactionGame.updateTrajectory 0
+push argument 0
+pop pointer 0
+push this 33
+push constant 10
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 2
+pop this 10
+push constant 3
+neg
+pop this 11
+push constant 1
+pop this 16
+push constant 4
+neg
+pop this 17
+push constant 7
+pop this 22
+push constant 0
+pop this 23
+push constant 3
+pop this 28
+push constant 1
+pop this 29
+push constant 2
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE0
+push this 33
+push constant 20
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 5
+pop this 10
+push constant 5
+neg
+pop this 11
+push constant 3
+neg
+pop this 16
+push constant 3
+pop this 17
+push constant 60
+pop this 20
+push constant 60
+pop this 21
+push constant 0
+pop this 22
+push constant 0
+pop this 23
+push constant 12
+pop this 28
+push constant 1
+pop this 29
+push constant 1
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE1
+push this 33
+push constant 30
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 4
+pop this 10
+push constant 2
+neg
+pop this 11
+push constant 4
+pop this 16
+push constant 3
+neg
+pop this 17
+push constant 30
+pop this 20
+push constant 20
+pop this 21
+push constant 5
+pop this 22
+push constant 2
+pop this 23
+push constant 1
+neg
+pop this 28
+push constant 1
+neg
+pop this 29
+push constant 3
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE2
+push this 33
+push constant 40
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 6
+pop this 10
+push constant 1
+pop this 11
+push constant 2
+pop this 16
+push constant 4
+neg
+pop this 17
+push constant 2
+pop this 22
+push constant 2
+pop this 23
+push constant 100
+pop this 12
+push constant 0
+pop this 13
+push constant 0
+pop this 28
+push constant 10
+pop this 29
+push constant 1
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE3
+push this 33
+push constant 50
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push this 34
+pop this 6
+push this 35
+pop this 7
+push this 34
+pop this 12
+push this 35
+push this 37
+add
+push constant 70
+sub
+pop this 13
+push this 34
+push this 36
+add
+push constant 70
+sub
+pop this 18
+push this 35
+pop this 19
+push constant 70
+pop this 8
+push constant 70
+pop this 9
+push constant 70
+pop this 14
+push constant 70
+pop this 15
+push constant 70
+pop this 20
+push this 37
+pop this 21
+push constant 5
+pop this 26
+push constant 5
+pop this 27
+push constant 0
+pop this 10
+push constant 0
+pop this 11
+push constant 0
+pop this 16
+push constant 0
+pop this 17
+push constant 0
+pop this 22
+push constant 0
+pop this 23
+push constant 13
+pop this 28
+push constant 20
+pop this 29
+push constant 20
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE4
+push this 33
+push constant 60
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 35
+pop this 8
+push constant 35
+pop this 9
+push constant 35
+pop this 14
+push constant 35
+pop this 15
+push constant 35
+pop this 20
+push constant 35
+pop this 21
+push constant 35
+pop this 26
+push constant 35
+pop this 27
+push constant 3
+pop this 10
+push constant 3
+pop this 11
+push constant 3
+neg
+pop this 16
+push constant 3
+neg
+pop this 17
+push constant 3
+neg
+pop this 22
+push constant 3
+neg
+pop this 23
+push constant 3
+pop this 28
+push constant 3
+pop this 29
+push constant 2
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE5
+push this 33
+push constant 70
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push pointer 0
+push this 39
+call ReactionGame.drawWarning 2
+pop temp 0
+push constant 30
+pop this 34
+push constant 100
+pop this 36
+push constant 10
+pop this 8
+push constant 10
+pop this 9
+push constant 10
+pop this 14
+push constant 10
+pop this 15
+push constant 10
+pop this 20
+push constant 10
+pop this 21
+push constant 10
+pop this 26
+push constant 10
+pop this 27
+push constant 5
+pop this 10
+push constant 2
+pop this 11
+push constant 5
+neg
+pop this 16
+push constant 5
+neg
+pop this 17
+push constant 1
+pop this 22
+push constant 6
+pop this 23
+push constant 6
+pop this 28
+push constant 4
+pop this 29
+push constant 4
+pop this 31
+push constant 3000
+call Sys.wait 1
+pop temp 0
+push this 33
+push constant 1
+add
+pop this 33
+label IF_FALSE6
+push constant 0
 return
 function ReactionGame.update 0
 push argument 0
@@ -374,12 +734,12 @@ push this 28
 neg
 pop this 28
 label IF_FALSE10
-push this 13
+push this 25
 push this 29
 add
 push constant 0
 lt
-push this 13
+push this 25
 push this 29
 add
 push this 35
@@ -405,57 +765,8 @@ push this 29
 add
 pop this 25
 push pointer 0
-push this 6
-push this 7
-push this 8
-push this 9
-call ReactionGame.collide 5
-if-goto IF_TRUE12
-goto IF_FALSE12
-label IF_TRUE12
-push constant 0
-not
-pop this 30
-label IF_FALSE12
-push pointer 0
-push this 12
-push this 13
-push this 14
-push this 15
-call ReactionGame.collide 5
-if-goto IF_TRUE13
-goto IF_FALSE13
-label IF_TRUE13
-push constant 0
-not
-pop this 30
-label IF_FALSE13
-push pointer 0
-push this 18
-push this 19
-push this 20
-push this 21
-call ReactionGame.collide 5
-if-goto IF_TRUE14
-goto IF_FALSE14
-label IF_TRUE14
-push constant 0
-not
-pop this 30
-label IF_FALSE14
-push pointer 0
-push this 24
-push this 25
-push this 26
-push this 27
-call ReactionGame.collide 5
-if-goto IF_TRUE15
-goto IF_FALSE15
-label IF_TRUE15
-push constant 0
-not
-pop this 30
-label IF_FALSE15
+call ReactionGame.updateTrajectory 1
+pop temp 0
 push constant 0
 return
 function ReactionGame.drawAll 0
@@ -810,6 +1121,493 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
+function ReactionGame.drawWarning 1
+push argument 0
+pop pointer 0
+push constant 16384
+push argument 1
+add
+pop local 0
+push local 0
+push constant 15599
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 14187
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 12395
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 14187
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 14177
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 12530
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 16513
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 1949
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 145
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 3854
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 28800
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 18816
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 12416
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 512
+add
+push constant 17792
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 544
+add
+push constant 30336
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 640
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 672
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 704
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 736
+add
+push constant 1009
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 768
+add
+push constant 1009
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 800
+add
+push constant 3087
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 832
+add
+push constant 3087
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 864
+add
+push constant 1009
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 896
+add
+push constant 1009
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 928
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 960
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 992
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 28057
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 32028
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 27993
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 27742
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 27868
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 225
+add
+push constant 7
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 257
+add
+push constant 5
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 289
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 321
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 353
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 417
+add
+push constant 3641
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 449
+add
+push constant 12832
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 481
+add
+push constant 13283
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 513
+add
+push constant 12832
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 545
+add
+push constant 3545
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 641
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 705
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 737
+add
+push constant 6
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 769
+add
+push constant 3852
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 801
+add
+push constant 12513
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 833
+add
+push constant 12513
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 865
+add
+push constant 3852
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 897
+add
+push constant 6
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 929
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 993
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 2
+add
+push constant 905
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 34
+add
+push constant 75
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 66
+add
+push constant 1866
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 98
+add
+push constant 1102
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 130
+add
+push constant 908
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 418
+add
+push constant 136
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 450
+add
+push constant 217
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 482
+add
+push constant 113
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 514
+add
+push constant 33
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 546
+add
+push constant 32
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 642
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 674
+add
+push constant 32767
+not
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 706
+add
+push constant 32764
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 738
+add
+push constant 32744
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 770
+add
+push constant 32720
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 802
+add
+push constant 29569
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 834
+add
+push constant 29569
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 866
+add
+push constant 32720
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 898
+add
+push constant 32744
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 930
+add
+push constant 32764
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 962
+add
+push constant 32767
+not
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 994
+add
+push constant 1
+neg
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
 function ReactionGame.waitRestart 1
 push argument 0
 pop pointer 0
@@ -1002,12 +1800,34 @@ if-goto WHILE_END1
 call Keyboard.keyPressed 0
 pop local 0
 push pointer 0
-push constant 7000
+push this 39
 call ReactionGame.drawPause 2
 pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 label IF_FALSE5
+push local 0
+push constant 43
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 33
+push constant 10
+add
+pop this 33
+label IF_FALSE6
+push local 0
+push constant 45
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push this 33
+push constant 10
+sub
+pop this 33
+label IF_FALSE7
 push pointer 0
 call ReactionGame.update 1
 pop temp 0
@@ -1022,7 +1842,7 @@ pop temp 0
 goto WHILE_EXP0
 label WHILE_END0
 push pointer 0
-push constant 7000
+push this 39
 call ReactionGame.drawGameOver 2
 pop temp 0
 push pointer 0

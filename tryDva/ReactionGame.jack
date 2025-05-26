@@ -26,10 +26,11 @@ class ReactionGame {
     field int kindaTimeInMs; field int time;
     field int xBound; field int yBound;
     field int boundWidth; field int boundHeight;
-
+    field boolean shield;
+    field int tamGdeNadoNadpisiRisovat;
 
     constructor ReactionGame new() {
-        let x = 50; let y = 50;
+        let x = 100; let y = 100;
         let playerWidth = 15; let playerHeight = 15;
         let dx = 0; let dy = 0;
 
@@ -41,19 +42,20 @@ class ReactionGame {
         let dbx1 = 1; let dby1 = -1;
 
         //нижний правый
-        let bx2 = 100; let by2 = 100;
+        let bx2 = 170; let by2 = 170;
         let bWidth2 = 40; let bHeight2 = 10;
         let dbx2 = -1; let dby2 = -2;
 
         //верхний правый
-        let bx3 = 100; let by3 = 30;
+        let bx3 = 170; let by3 = 30;
         let bWidth3 = 30; let bHeight3 = 20;
         let dbx3 = 1; let dby3 = 1;
         
         //нижний левый
-        let bx4 = 30; let by4 = 100;
+        let bx4 = 30; let by4 = 170;
         let bWidth4 = 10; let bHeight4 = 30;
         let dbx4 = 2; let dby4 = 2;
+
         /////////////////////////
 
         let gameOver = false;
@@ -61,6 +63,8 @@ class ReactionGame {
         let xBound = 10; let yBound = 10;
         let boundWidth = 200; let boundHeight = 200;
         let kindaTimeInMs = 0; let time = 0;
+        let shield = false;
+        let tamGdeNadoNadpisiRisovat = 6800;
         return this;
     }
 
@@ -72,6 +76,118 @@ class ReactionGame {
         if ((by + height) < y) { return false; }
         
         return true;
+    }
+    /** обновление траектории и скорости  */
+    method void updateTrajectory() {  
+        if (time = 10) {
+            do drawWarning(tamGdeNadoNadpisiRisovat); 
+
+            let dbx1 = 2; let dby1 = -3;
+            let dbx2 = 1; let dby2 = -4;
+            let dbx3 = 7; let dby3 = 0;
+            let dbx4 = 3; let dby4 = 1;
+            let gameSpeed = 2;
+
+            do Sys.wait(3000);
+            let time = time + 1;
+        }  
+        if (time = 20) {
+            do drawWarning(tamGdeNadoNadpisiRisovat); 
+
+            let dbx1 = 5; let dby1 = -5;
+            let dbx2 = -3; let dby2 = 3;
+            let bWidth3 = 60; let bHeight3 = 60;
+            let dbx3 = 0; let dby3 = 0;
+            let dbx4 = 12; let dby4 = 1;  
+            let gameSpeed = 1;
+
+            do Sys.wait(3000);
+            let time = time + 1;
+        }
+        if (time = 30) {
+            do drawWarning(tamGdeNadoNadpisiRisovat); 
+
+            let dbx1 = 4; let dby1 = -2;
+            let dbx2 = 4; let dby2 = -3;
+            let bWidth3 = 30; let bHeight3 = 20;
+            let dbx3 = 5; let dby3 = 2;
+            let dbx4 = -1; let dby4 = -1;  
+            let gameSpeed = 3;
+
+            do Sys.wait(3000);
+            let time = time + 1;
+        }
+        if (time = 40) {
+            do drawWarning(tamGdeNadoNadpisiRisovat); 
+
+            let dbx1 = 6; let dby1 = 1;
+            let dbx2 = 2; let dby2 = -4;
+            let dbx3 = 2; let dby3 = 2;
+            let bx2 = 100; let by2 = 0;
+            let dbx4 = 0; let dby4 = 10;  
+            let gameSpeed = 1;
+
+            do Sys.wait(3000);
+            let time = time + 1;
+        }
+        if (time = 50) {
+            do drawWarning(tamGdeNadoNadpisiRisovat);
+
+            let bx1 = xBound; let by1 = yBound;
+            let bx2 = xBound; let by2 = yBound + boundHeight - 70;
+            let bx3 = xBound + boundWidth - 70; let by3 = yBound;
+            
+            let bWidth1 = 70; let bHeight1 = 70;
+            let bWidth2 = 70; let bHeight2 = 70;
+            let bWidth3 = 70; let bHeight3 = boundHeight;   
+            let bWidth4 = 5; let bHeight4 = 5; 
+            
+            let dbx1 = 0; let dby1 = 0;
+            let dbx2 = 0; let dby2 = 0;
+            let dbx3 = 0; let dby3 = 0;
+            let dbx4 = 13; let dby4 = 20;  
+            let gameSpeed = 20;
+            
+            do Sys.wait(3000);
+            let time = time + 1;
+        }
+        if (time = 60) {
+            do drawWarning(tamGdeNadoNadpisiRisovat);
+
+            let bWidth1 = 35; let bHeight1 = 35;
+            let bWidth2 = 35; let bHeight2 = 35;
+            let bWidth3 = 35; let bHeight3 = 35;   
+            let bWidth4 = 35; let bHeight4 = 35;
+
+            let dbx1 = 3; let dby1 = 3;
+            let dbx2 = -3; let dby2 = -3;
+            let dbx3 = -3; let dby3 = -3;
+            let dbx4 = 3; let dby4 = 3;  
+            let gameSpeed = 2;
+
+            do Sys.wait(3000);
+            let time = time + 1;
+        }
+        if (time = 70) {
+            do drawWarning(tamGdeNadoNadpisiRisovat);
+
+            let xBound = 30; let boundWidth = 100;
+            let bWidth1 = 10; let bHeight1 = 10;
+            let bWidth2 = 10; let bHeight2 = 10;
+            let bWidth3 = 10; let bHeight3 = 10;   
+            let bWidth4 = 10; let bHeight4 = 10;
+
+            let dbx1 = 5; let dby1 = 2;
+            let dbx2 = -5; let dby2 = -5;
+            let dbx3 = 1; let dby3 = 6;
+            let dbx4 = 6; let dby4 = 4;  
+            let gameSpeed = 4;
+
+            do Sys.wait(3000);
+            let time = time + 1; 
+        }
+        return;
+        
     }
 
     /** обновление моделей  */
@@ -108,14 +224,14 @@ class ReactionGame {
 
         //////////
 
-        if (collide(bx1, by1, bWidth1, bHeight1)) { let gameOver = true; }
-        if (collide(bx2, by2, bWidth2, bHeight2)) { let gameOver = true; }
-        if (collide(bx3, by3, bWidth3, bHeight3)) { let gameOver = true; }
-        if (collide(bx4, by4, bWidth4, bHeight4)) { let gameOver = true; }
+        //if (collide(bx1, by1, bWidth1, bHeight1)) { let gameOver = true; }
+        //if (collide(bx2, by2, bWidth2, bHeight2)) { let gameOver = true; }
+        //if (collide(bx3, by3, bWidth3, bHeight3)) { let gameOver = true; }
+        //if (collide(bx4, by4, bWidth4, bHeight4)) { let gameOver = true; }
         
         //////////
 
-        //do updateSpeed
+        do updateTrajectory();
         return;
     }
 
@@ -209,6 +325,89 @@ class ReactionGame {
         return;
     }
 
+    /** отрисовка warning + get ready + ... */
+    method void drawWarning(int location) {
+        var int memAddress; 
+        let memAddress = 16384+location;
+        // column 0
+        do Memory.poke(memAddress, -15599);
+        do Memory.poke(memAddress +32, -14187);
+        do Memory.poke(memAddress +64, -12395);
+        do Memory.poke(memAddress +96, -14187);
+        do Memory.poke(memAddress +128, -14177);
+        do Memory.poke(memAddress +224, -12530);
+        do Memory.poke(memAddress +256, 16513);
+        do Memory.poke(memAddress +288, 1949);
+        do Memory.poke(memAddress +320, 145);
+        do Memory.poke(memAddress +352, 3854);
+        do Memory.poke(memAddress +416, -28800);
+        do Memory.poke(memAddress +448, 18816);
+        do Memory.poke(memAddress +480, -12416);
+        do Memory.poke(memAddress +512, 17792);
+        do Memory.poke(memAddress +544, -30336);
+        do Memory.poke(memAddress +640, -1);
+        do Memory.poke(memAddress +672, 1);
+        do Memory.poke(memAddress +704, 1);
+        do Memory.poke(memAddress +736, 1009);
+        do Memory.poke(memAddress +768, 1009);
+        do Memory.poke(memAddress +800, -3087);
+        do Memory.poke(memAddress +832, -3087);
+        do Memory.poke(memAddress +864, 1009);
+        do Memory.poke(memAddress +896, 1009);
+        do Memory.poke(memAddress +928, 1);
+        do Memory.poke(memAddress +960, 1);
+        do Memory.poke(memAddress +992, -1);
+        // column 1
+        do Memory.poke(memAddress +1, -28057);
+        do Memory.poke(memAddress +33, -32028);
+        do Memory.poke(memAddress +65, -27993);
+        do Memory.poke(memAddress +97, -27742);
+        do Memory.poke(memAddress +129, -27868);
+        do Memory.poke(memAddress +225, 7);
+        do Memory.poke(memAddress +257, 5);
+        do Memory.poke(memAddress +289, 1);
+        do Memory.poke(memAddress +321, 1);
+        do Memory.poke(memAddress +353, 1);
+        do Memory.poke(memAddress +417, -3641);
+        do Memory.poke(memAddress +449, 12832);
+        do Memory.poke(memAddress +481, 13283);
+        do Memory.poke(memAddress +513, 12832);
+        do Memory.poke(memAddress +545, -3545);
+        do Memory.poke(memAddress +641, -1);
+        do Memory.poke(memAddress +705, 1);
+        do Memory.poke(memAddress +737, 6);
+        do Memory.poke(memAddress +769, 3852);
+        do Memory.poke(memAddress +801, -12513);
+        do Memory.poke(memAddress +833, -12513);
+        do Memory.poke(memAddress +865, 3852);
+        do Memory.poke(memAddress +897, 6);
+        do Memory.poke(memAddress +929, 1);
+        do Memory.poke(memAddress +993, -1);
+        // column 2
+        do Memory.poke(memAddress +2, 905);
+        do Memory.poke(memAddress +34, 75);
+        do Memory.poke(memAddress +66, 1866);
+        do Memory.poke(memAddress +98, 1102);
+        do Memory.poke(memAddress +130, 908);
+        do Memory.poke(memAddress +418, 136);
+        do Memory.poke(memAddress +450, 217);
+        do Memory.poke(memAddress +482, 113);
+        do Memory.poke(memAddress +514, 33);
+        do Memory.poke(memAddress +546, 32);
+        do Memory.poke(memAddress +642, -1);
+        do Memory.poke(memAddress +674, ~32767);
+        do Memory.poke(memAddress +706, -32764);
+        do Memory.poke(memAddress +738, -32744);
+        do Memory.poke(memAddress +770, -32720);
+        do Memory.poke(memAddress +802, -29569);
+        do Memory.poke(memAddress +834, -29569);
+        do Memory.poke(memAddress +866, -32720);
+        do Memory.poke(memAddress +898, -32744);
+        do Memory.poke(memAddress +930, -32764);
+        do Memory.poke(memAddress +962, ~32767);
+        do Memory.poke(memAddress +994, -1);
+        return;
+    }
     /** ожидание рестарта + сам рестарт */
     method void waitRestart() {
         var int key;
@@ -282,17 +481,22 @@ class ReactionGame {
                 do Sys.wait(50);
                 while (~(key = 112)) {      
                     let key = Keyboard.keyPressed();
-                    do drawPause(7000);
+                    do drawPause(tamGdeNadoNadpisiRisovat);
                 }
             }
-
+            if (key = 43) { // '+' - +10sec
+                let time = time + 10;
+            }
+            if (key = 45) { // '-' - -10sec
+                let time = time - 10;
+            }
             do update(); 
             do Screen.clearScreen(); 
             do drawAll(); 
             do Sys.wait(1);
         }
 
-        do drawGameOver(7000);
+        do drawGameOver(tamGdeNadoNadpisiRisovat);
         do waitRestart();
         return;
     }
