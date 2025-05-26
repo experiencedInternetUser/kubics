@@ -316,6 +316,14 @@ push this 39
 call ReactionGame.drawWarning 2
 pop temp 0
 push this 34
+push constant 70
+add
+pop this 0
+push this 35
+push constant 70
+add
+pop this 1
+push this 34
 pop this 6
 push this 35
 pop this 7
@@ -765,6 +773,82 @@ push this 29
 add
 pop this 25
 push pointer 0
+push this 6
+push this 7
+push this 8
+push this 9
+call ReactionGame.collide 5
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push this 38
+not
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push constant 0
+not
+pop this 30
+label IF_FALSE13
+label IF_FALSE12
+push pointer 0
+push this 12
+push this 13
+push this 14
+push this 15
+call ReactionGame.collide 5
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push this 38
+not
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push constant 0
+not
+pop this 30
+label IF_FALSE15
+label IF_FALSE14
+push pointer 0
+push this 18
+push this 19
+push this 20
+push this 21
+call ReactionGame.collide 5
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push this 38
+not
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push constant 0
+not
+pop this 30
+label IF_FALSE17
+label IF_FALSE16
+push pointer 0
+push this 24
+push this 25
+push this 26
+push this 27
+call ReactionGame.collide 5
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push this 38
+not
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+push constant 0
+not
+pop this 30
+label IF_FALSE19
+label IF_FALSE18
+push pointer 0
 call ReactionGame.updateTrajectory 1
 pop temp 0
 push constant 0
@@ -825,7 +909,7 @@ add
 call Screen.drawLine 4
 pop temp 0
 push constant 20
-push constant 10
+push constant 2
 call Output.moveCursor 2
 pop temp 0
 push this 33
@@ -1787,7 +1871,7 @@ goto IF_FALSE5
 label IF_TRUE5
 push constant 0
 pop local 0
-push constant 50
+push constant 2000
 call Sys.wait 1
 pop temp 0
 label WHILE_EXP1
@@ -1828,6 +1912,25 @@ push constant 10
 sub
 pop this 33
 label IF_FALSE7
+push local 0
+push constant 120
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push this 38
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push constant 0
+pop this 38
+goto IF_END9
+label IF_FALSE9
+push constant 0
+not
+pop this 38
+label IF_END9
+label IF_FALSE8
 push pointer 0
 call ReactionGame.update 1
 pop temp 0

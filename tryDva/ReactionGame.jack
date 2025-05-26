@@ -225,10 +225,18 @@ class ReactionGame {
 
         //////////
 
-        //if (collide(bx1, by1, bWidth1, bHeight1)) { let gameOver = true; }
-        //if (collide(bx2, by2, bWidth2, bHeight2)) { let gameOver = true; }
-        //if (collide(bx3, by3, bWidth3, bHeight3)) { let gameOver = true; }
-        //if (collide(bx4, by4, bWidth4, bHeight4)) { let gameOver = true; }
+        if (collide(bx1, by1, bWidth1, bHeight1)) { 
+            if (~(shield)) { let gameOver = true; }
+        }
+        if (collide(bx2, by2, bWidth2, bHeight2)) { 
+            if (~(shield)) { let gameOver = true; }
+        }
+        if (collide(bx3, by3, bWidth3, bHeight3)) { 
+            if (~(shield)) { let gameOver = true; }
+        }
+        if (collide(bx4, by4, bWidth4, bHeight4)) {
+            if (~(shield)) { let gameOver = true; }
+        }
         
         //////////
 
@@ -415,27 +423,28 @@ class ReactionGame {
         while (~(key = 114)) {
             let key = Keyboard.keyPressed();
             if (key = 114) { // r - restart
-                let x = 50; let y = 50;
+                let x = 100; let y = 100;
                 let playerWidth = 15; let playerHeight = 15;
                 let dx = 0; let dy = 0;
-
-                /////////////////////////
-
                 let bx1 = 30; let by1 = 30;
                 let bWidth1 = 10; let bHeight1 = 20;
                 let dbx1 = 1; let dby1 = -1;
-
-                let bx2 = 100; let by2 = 100;
-                let bWidth2 = 15; let bHeight2 = 10;
+                let bx2 = 170; let by2 = 170;
+                let bWidth2 = 40; let bHeight2 = 10;
                 let dbx2 = -1; let dby2 = -2;
-
-                /////////////////////////
-
+                let bx3 = 170; let by3 = 30;
+                let bWidth3 = 30; let bHeight3 = 20;
+                let dbx3 = 1; let dby3 = 1;
+                let bx4 = 30; let by4 = 170;
+                let bWidth4 = 10; let bHeight4 = 30;
+                let dbx4 = 2; let dby4 = 2;
                 let gameOver = false;
                 let gameSpeed = 1;
                 let xBound = 10; let yBound = 10;
                 let boundWidth = 200; let boundHeight = 200;
                 let kindaTimeInMs = 0; let time = 0;
+                let shield = false;
+                let tamGdeNadoNadpisiRisovat = 6800;
             }
         }
 
@@ -490,7 +499,13 @@ class ReactionGame {
             if (key = 45) { // '-' - -10sec
                 let time = time - 10;
             }
-
+            if (key = 120) { // x - shield toggle
+                if (shield) { 
+                    let shield = false;
+                } else { 
+                    let shield = true;
+                }
+            }
             do update(); 
             do Screen.clearScreen(); 
             do drawAll(); 
