@@ -1,5 +1,5 @@
 function ReactionGame.new 0
-push constant 26
+push constant 38
 call Memory.alloc 1
 pop pointer 0
 push constant 50
@@ -31,7 +31,7 @@ push constant 100
 pop this 12
 push constant 100
 pop this 13
-push constant 15
+push constant 40
 pop this 14
 push constant 10
 pop this 15
@@ -41,22 +41,46 @@ pop this 16
 push constant 2
 neg
 pop this 17
-push constant 0
+push constant 100
 pop this 18
-push constant 1
+push constant 30
 pop this 19
-push constant 10
-pop this 22
-push constant 10
-pop this 23
-push constant 200
-pop this 24
-push constant 200
-pop this 25
-push constant 0
+push constant 30
 pop this 20
-push constant 0
+push constant 20
 pop this 21
+push constant 1
+pop this 22
+push constant 1
+pop this 23
+push constant 30
+pop this 24
+push constant 100
+pop this 25
+push constant 10
+pop this 26
+push constant 30
+pop this 27
+push constant 2
+pop this 28
+push constant 2
+pop this 29
+push constant 0
+pop this 30
+push constant 1
+pop this 31
+push constant 10
+pop this 34
+push constant 10
+pop this 35
+push constant 200
+pop this 36
+push constant 200
+pop this 37
+push constant 0
+pop this 32
+push constant 0
+pop this 33
 push pointer 0
 return
 function ReactionGame.collide 0
@@ -121,35 +145,35 @@ push this 5
 add
 pop this 1
 push this 0
-push this 22
+push this 34
 lt
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push this 22
+push this 34
 pop this 0
 label IF_FALSE0
 push this 1
-push this 23
+push this 35
 lt
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
-push this 23
+push this 35
 pop this 1
 label IF_FALSE1
 push this 0
 push this 2
 add
-push this 22
-push this 24
+push this 34
+push this 36
 add
 gt
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push this 22
-push this 24
+push this 34
+push this 36
 add
 push this 2
 sub
@@ -158,15 +182,15 @@ label IF_FALSE2
 push this 1
 push this 3
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
 gt
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
-push this 23
-push this 25
+push this 35
+push this 37
 add
 push this 3
 sub
@@ -180,10 +204,10 @@ lt
 push this 6
 push this 10
 add
-push this 22
-push this 24
+push this 34
+push this 36
 add
-push this 22
+push this 34
 add
 gt
 or
@@ -202,10 +226,10 @@ lt
 push this 7
 push this 11
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
-push this 23
+push this 35
 add
 gt
 or
@@ -232,10 +256,10 @@ lt
 push this 12
 push this 16
 add
-push this 22
-push this 24
+push this 34
+push this 36
 add
-push this 22
+push this 34
 add
 gt
 or
@@ -254,10 +278,10 @@ lt
 push this 13
 push this 17
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
-push this 23
+push this 35
 add
 gt
 or
@@ -276,32 +300,162 @@ push this 13
 push this 17
 add
 pop this 13
+push this 18
+push this 22
+add
+push constant 0
+lt
+push this 18
+push this 22
+add
+push this 34
+push this 36
+add
+push this 34
+add
+gt
+or
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push this 22
+neg
+pop this 22
+label IF_FALSE8
+push this 19
+push this 23
+add
+push constant 0
+lt
+push this 19
+push this 23
+add
+push this 35
+push this 37
+add
+push this 35
+add
+gt
+or
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push this 23
+neg
+pop this 23
+label IF_FALSE9
+push this 18
+push this 22
+add
+pop this 18
+push this 19
+push this 23
+add
+pop this 19
+push this 24
+push this 28
+add
+push constant 0
+lt
+push this 24
+push this 28
+add
+push this 34
+push this 36
+add
+push this 34
+add
+gt
+or
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push this 28
+neg
+pop this 28
+label IF_FALSE10
+push this 13
+push this 29
+add
+push constant 0
+lt
+push this 13
+push this 29
+add
+push this 35
+push this 37
+add
+push this 35
+add
+gt
+or
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push this 29
+neg
+pop this 29
+label IF_FALSE11
+push this 24
+push this 28
+add
+pop this 24
+push this 25
+push this 29
+add
+pop this 25
 push pointer 0
 push this 6
 push this 7
 push this 8
 push this 9
 call ReactionGame.collide 5
-if-goto IF_TRUE8
-goto IF_FALSE8
-label IF_TRUE8
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
 push constant 0
 not
-pop this 18
-label IF_FALSE8
+pop this 30
+label IF_FALSE12
 push pointer 0
 push this 12
 push this 13
 push this 14
 push this 15
 call ReactionGame.collide 5
-if-goto IF_TRUE9
-goto IF_FALSE9
-label IF_TRUE9
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
 push constant 0
 not
-pop this 18
-label IF_FALSE9
+pop this 30
+label IF_FALSE13
+push pointer 0
+push this 18
+push this 19
+push this 20
+push this 21
+call ReactionGame.collide 5
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push constant 0
+not
+pop this 30
+label IF_FALSE14
+push pointer 0
+push this 24
+push this 25
+push this 26
+push this 27
+call ReactionGame.collide 5
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push constant 0
+not
+pop this 30
+label IF_FALSE15
 push constant 0
 return
 function ReactionGame.drawAll 0
@@ -311,51 +465,51 @@ push constant 0
 not
 call Screen.setColor 1
 pop temp 0
-push this 22
-push this 23
-push this 22
-push this 24
+push this 34
+push this 35
+push this 34
+push this 36
 add
-push this 23
+push this 35
 push constant 0
 add
 call Screen.drawLine 4
 pop temp 0
-push this 22
-push this 23
-push this 22
+push this 34
+push this 35
+push this 34
 push constant 0
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
 call Screen.drawLine 4
 pop temp 0
-push this 22
-push this 24
+push this 34
+push this 36
 add
-push this 23
+push this 35
 push constant 0
 add
-push this 22
-push this 24
+push this 34
+push this 36
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
 call Screen.drawLine 4
 pop temp 0
-push this 22
+push this 34
 push constant 0
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
-push this 22
-push this 24
+push this 34
+push this 36
 add
-push this 23
-push this 25
+push this 35
+push this 37
 add
 call Screen.drawLine 4
 pop temp 0
@@ -363,7 +517,7 @@ push constant 20
 push constant 10
 call Output.moveCursor 2
 pop temp 0
-push this 21
+push this 33
 call Output.printInt 1
 pop temp 0
 push this 6
@@ -386,6 +540,26 @@ push this 15
 add
 call Screen.drawRectangle 4
 pop temp 0
+push this 18
+push this 19
+push this 18
+push this 20
+add
+push this 19
+push this 21
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 24
+push this 25
+push this 24
+push this 26
+add
+push this 25
+push this 27
+add
+call Screen.drawRectangle 4
+pop temp 0
 push this 0
 push this 1
 push this 0
@@ -401,18 +575,18 @@ return
 function ReactionGame.increaseTime 0
 push argument 0
 pop pointer 0
-push this 20
+push this 32
 push constant 50
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push constant 0
-pop this 20
-push this 21
+pop this 32
+push this 33
 push constant 1
 add
-pop this 21
+pop this 33
 label IF_FALSE0
 push constant 0
 return
@@ -553,6 +727,89 @@ call Memory.poke 2
 pop temp 0
 push constant 0
 return
+function ReactionGame.drawPause 1
+push argument 0
+pop pointer 0
+push constant 16384
+push argument 1
+add
+pop local 0
+push local 0
+push constant 18190
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 18577
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 20367
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 18561
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 14207
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 1
+add
+push constant 7228
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 33
+add
+push constant 4132
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 65
+add
+push constant 3644
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 97
+add
+push constant 4612
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 129
+add
+push constant 7705
+neg
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 2
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 130
+add
+push constant 1
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
 function ReactionGame.waitRestart 1
 push argument 0
 pop pointer 0
@@ -611,21 +868,21 @@ push constant 2
 neg
 pop this 17
 push constant 0
-pop this 18
+pop this 30
 push constant 1
-pop this 19
+pop this 31
 push constant 10
-pop this 22
+pop this 34
 push constant 10
-pop this 23
+pop this 35
 push constant 200
-pop this 24
+pop this 36
 push constant 200
-pop this 25
+pop this 37
 push constant 0
-pop this 20
+pop this 32
 push constant 0
-pop this 21
+pop this 33
 label IF_FALSE0
 goto WHILE_EXP0
 label WHILE_END0
@@ -643,7 +900,7 @@ push pointer 0
 call ReactionGame.drawAll 1
 pop temp 0
 label WHILE_EXP0
-push this 18
+push this 30
 not
 not
 if-goto WHILE_END0
@@ -653,10 +910,10 @@ push constant 0
 pop this 5
 call Keyboard.keyPressed 0
 pop local 0
-push this 20
+push this 32
 push constant 1
 add
-pop this 20
+pop this 32
 push pointer 0
 call ReactionGame.increaseTime 1
 pop temp 0
@@ -668,13 +925,11 @@ goto IF_FALSE0
 label IF_TRUE0
 push constant 5
 neg
-push this 19
+push this 31
 call Math.multiply 2
 pop this 4
 push constant 0
 pop this 5
-call Keyboard.keyPressed 0
-pop local 0
 label IF_FALSE0
 push local 0
 push constant 100
@@ -683,13 +938,11 @@ if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
 push constant 5
-push this 19
+push this 31
 call Math.multiply 2
 pop this 4
 push constant 0
 pop this 5
-call Keyboard.keyPressed 0
-pop local 0
 label IF_FALSE1
 push local 0
 push constant 119
@@ -701,11 +954,9 @@ push constant 0
 pop this 4
 push constant 5
 neg
-push this 19
+push this 31
 call Math.multiply 2
 pop this 5
-call Keyboard.keyPressed 0
-pop local 0
 label IF_FALSE2
 push local 0
 push constant 115
@@ -716,11 +967,9 @@ label IF_TRUE3
 push constant 0
 pop this 4
 push constant 5
-push this 19
+push this 31
 call Math.multiply 2
 pop this 5
-call Keyboard.keyPressed 0
-pop local 0
 label IF_FALSE3
 push local 0
 push constant 111
@@ -730,7 +979,7 @@ goto IF_FALSE4
 label IF_TRUE4
 push constant 0
 not
-pop this 18
+pop this 30
 label IF_FALSE4
 push local 0
 push constant 112
@@ -752,6 +1001,10 @@ not
 if-goto WHILE_END1
 call Keyboard.keyPressed 0
 pop local 0
+push pointer 0
+push constant 7000
+call ReactionGame.drawPause 2
+pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 label IF_FALSE5
